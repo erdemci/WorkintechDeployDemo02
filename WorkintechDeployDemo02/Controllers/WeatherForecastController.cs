@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace WorkintechDeployDemo02.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("[controller]/[action]")]
     public class WeatherForecastController : ControllerBase
     {
         private static readonly string[] Summaries = new[]
@@ -28,6 +28,12 @@ namespace WorkintechDeployDemo02.Controllers
                 Summary = Summaries[Random.Shared.Next(Summaries.Length)]
             })
             .ToArray();
+        }
+
+        [HttpGet]
+        public DateTime GetDate()
+        {
+            return DateTime.Now;
         }
     }
 }
